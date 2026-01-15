@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<title>HarrisonHighSchool</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-	<link rel="stylesheet" media="all" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" media="all" href="{% static 'assets/css/style.css' %}">
 	<!--[if lt IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
@@ -15,17 +15,17 @@
 
 	<header id="header">
 		<div class="container">
-			<a href="{% static 'index.html' %}" id="logo" title="HarrisonHighSchool">HarrisonHighSchool</a>
+			<a href="index" id="logo" title="HarrisonHighSchool">HarrisonHighSchool</a>
 			<div class="menu-trigger"></div>
 			<nav id="menu">
 				<ul>
-					<li><a href="{% static 'events.html' %}">Courses</a></li>
-					<li><a href="{% static 'gallery.html' %}">Students</a></li>
-					<li class="current"><a href="{% static 'events.html' %}">Events</a></li>
+					<li><a href="events">Courses</a></li>
+					<li><a href="student_list">Students</a></li>
+					<li class="current"><a href="events">Events</a></li>
  				</ul>
 				<ul>
-					<li><a href="{% static 'gallery.html' %}">Teachers</a></li>
-					<li><a href="{% static 'gallery.html' %}">Gallery</a></li>
+					<li><a href="gallery">Teachers</a></li>
+					<li><a href="gallery">Gallery</a></li>
 					<li><a href=# class="get-contact">Contact</a></li>
    				</ul>
 			</nav>
@@ -73,14 +73,14 @@
 	<section class="posts">
 		<div class="container">
 			<article>
-				<div class="pic"><img width="121" src="{% static 'images/2.png' %}" alt=""></div>
+				<div class="pic"><img width="121" src="{% static 'assets/images/2.png' %}" alt=""></div>
 				<div class="info">
 					<h3>The best learning methods</h3>
 					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis quasi architecto beatae vitae dicta sunt explicabo. </p>
 				</div>
 			</article>
 			<article>
-				<div class="pic"><img width="121" src="{% static 'images/3.png' %}" alt=""></div>
+				<div class="pic"><img width="121" src="{% static 'assets/images/3.png' %}" alt=""></div>
 				<div class="info">
 					<h3>Awesome results of our students</h3>
 					<p>Vero eos et accusamus et iusto odio dignissimos ducimus blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa.</p>
@@ -94,7 +94,7 @@
 		<div class="container">
 			<h2>Latest news</h2>
 			<article>
-				<div class="pic"><img src="{% static 'images/1.png' %}" alt=""></div>
+				<div class="pic"><img src="{% static 'assets/images/1.png' %}" alt=""></div>
 				<div class="info">
 					<h4>Omnis iste natus error sit voluptatem accusantium </h4>
 					<p class="date">14 APR 2014, Jason Bang</p>
@@ -103,7 +103,7 @@
 				</div>
 			</article>
 			<article>
-				<div class="pic"><img src="{% static 'images/1_1.png' %}" alt=""></div>
+				<div class="pic"><img src="{% static 'assets/images/1_1.png' %}" alt=""></div>
 				<div class="info">
 					<h4>Omnis iste natus error sit voluptatem accusantium </h4>
 					<p class="date">14 APR 2014, Jason Bang</p>
@@ -243,9 +243,9 @@
 		</form>
 	</div>
 
-	<script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
-	<script>window.jQuery || document.write("<script src='{% static 'js/jquery-1.11.1.min.js' %}'>\x3C/script>")</script>
-	<script src="{% static 'js/plugins.js' %}"></script>
-	<script src="{% static 'js/main.js' %}"></script>
+	<script src="{% static 'assets/js/jquery-1.11.1.min.js' %}"></script>
+	<script>window.jQuery || document.write("<script src='{% static 'assets/js/jquery-1.11.1.min.js' %}'>\x3C/script>")</script>
+	<script src="{% static 'assets/js/plugins.js' %}"></script>
+	<script src="{% static 'assets/js/main.js' %}"></script>
 </body>
 </html>
