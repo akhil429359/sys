@@ -3,20 +3,9 @@
 {% block content %}
 
 <h1>ADD NEW STUDENT</h1>
-<form action="add_student" method="post">
+<form action="{% url 'add_student' %}" method="post">
     {% csrf_token %}
-    <div>
-        <label for="">Name : </label>
-        <input type="text" placeholder="Enter The Name" name="name">
-    </div>
-    <div>
-        <label for="">Email : </label>
-        <input type="text" placeholder="Enter The Email" name="email">
-    </div>
-    <div>
-        <label for="">Course : </label> 
-        <input type="text" placeholder="Enter The Course Name" name="course">
-    </div>
+    {{ form.as_p }}
     <button type="submit">SUBMIT</button>
 </form>
 {% endblock %}

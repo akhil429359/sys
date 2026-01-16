@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Student
+from .forms import StudentForm
 # Create your views here.
 
 def index(request):
@@ -14,30 +15,29 @@ def student_list(request):
 
 def add_student(request):
     if request.method == 'POST':
-        name = request.POST['name']
-        email = request.POST['email']
-        course = request.POST['course']
-        data = Student.objects.create(name=name,email=email,course=course)
-        data.save()
-        return redirect(student_list)
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('student_list')
     else:
-        return render(request,'add_student.html')
+        form = StudentForm()
+    return render(request,'add_student.html',{'form':form})
     
 def update_student(request,id):
     data = Student.objects.get(id=id)
     if request.method == 'POST':
-        data.name = request.POST['name']
-        data.email = request.POST['email']
-        data.course = request.POST['course']
-        data.save()
-        return redirect(student_list)
+        form = StudentForm(request.POST,instance=data)
+        if form.is_valid():
+            form.save()
+            return redirect('student_list')
     else:
-        return render(request,'update_student.html',{"data":data})
+        form = StudentForm(instance=data)
+    return render(request,'update_student.html',{"form":form})
     
 def delete_student(request,id):
     data = Student.objects.get(id=id)
     data.delete()
-    return redirect(student_list)
+    return redirect('student_list')
     
 
 
