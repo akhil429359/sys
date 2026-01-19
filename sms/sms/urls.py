@@ -29,6 +29,7 @@ urlpatterns = [
     path('add_student',views.add_student,name='add_student'),
     path('update_student/<int:id>',views.update_student,name='update_student'),
     path('delete_student/<int:id>',views.delete_student,name='delete_student'),
+    path('student_detail/<int:id>',views.student_detail,name='student_detail'),
 
     
 ]

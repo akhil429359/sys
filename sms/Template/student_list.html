@@ -2,6 +2,10 @@
 {% load static %}
 {% block content %}
 
+<form action="" method="get">
+    <input type="text" placeholder="Search by name or course" name="q" value="{{query|default:'' }}">
+    <button type="submit">Search</button>
+</form>
 <table>
     <tr>
         <th>Name</th>
@@ -10,9 +14,12 @@
     </tr>
     {% for i in data %}
     <tr>
-        <td>{{i.name}}</td>
+        <td><a href="{% url 'student_detail' id=i.id %}">{{i.name}}</a></td>
         <td>{{i.email}}</td>
         <td>{{i.course}}</td>
+        <td>
+        <a href="{% url 'student_detail' id=i.id %}"><button>view</button></a>
+        </td>
         <td>
         <a href="{% url 'update_student' id=i.id %}"><button>Edit</button></a>
         </td>
@@ -23,4 +30,22 @@
     {% endfor %}
     
 </table>
+<div>
+    {% if data.has_previous %}
+        <a href="?page={{ data.previous_page_number }}{% if query %}&q={{ query }}{% endif %}">
+            Previous
+        </a>
+    {% endif %}
+
+    <span>
+        Page {{ data.number }} of {{ data.paginator.num_pages }}
+    </span>
+
+    {% if data.has_next %}
+        <a href="?page={{ data.next_page_number }}{% if query %}&q={{ query }}{% endif %}">
+            Next
+        </a>
+    {% endif %}
+</div>
+
 {% endblock %}

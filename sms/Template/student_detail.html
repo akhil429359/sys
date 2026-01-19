@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg p-4 rounded-4">
+                <h3 class="text-center mb-4">Student Deatil</h3>
+                
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Name</label>
+                    <p class="form-control-plaintext">{{ data.name }}</p>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Email</label>
+                    <p class="form-control-plaintext">{{ data.email }}</p>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Course</label>
+                    <p class="form-control-plaintext">{{ data.course }}</p>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Created At</label>
+                    <p class="form-control-plaintext">{{ data.created_at }}</p>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Updated At</label>
+                    <p class="form-control-plaintext">{{ data.updated_at }}</p>
+                </div>
+                    <div><a href="{% url 'update_student' data.id %}" class="btn btn-primary btn-sm rounded-pill px-4">Edit</a></div>
+                    <div><a href="{% url 'student_list' %}">Back</a></div>
+                    <div><a href="{% url 'delete_student' data.id %}">Delete</a></div>
+                <div class="text-center">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
