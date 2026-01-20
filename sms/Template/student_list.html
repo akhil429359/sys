@@ -4,19 +4,28 @@
 
 <form action="" method="get">
     <input type="text" placeholder="Search by name or course" name="q" value="{{query|default:'' }}">
-    <button type="submit">Search</button>
+    <button type="submit">Search</button><br>
+    <label>Sort by:</label>
+    <select name="sort" onchange="this.form.submit()">
+        <option value="">-- Select --</option>
+        <option value="name" {% if sort == 'name' %}selected{% endif %}>Name</option>
+        <option value="course" {% if sort == 'course' %}selected{% endif %}>Course</option>
+        <option value="created" {% if sort == 'created' %}selected{% endif %}>Newest</option>
+    </select>   
 </form>
 <table>
     <tr>
         <th>Name</th>
         <th>Email</th>
         <th>Course</th>
+        <th>Status</th>
     </tr>
     {% for i in data %}
     <tr>
         <td><a href="{% url 'student_detail' id=i.id %}">{{i.name}}</a></td>
         <td>{{i.email}}</td>
         <td>{{i.course}}</td>
+        <td>{{i.status}}</td>
         <td>
         <a href="{% url 'student_detail' id=i.id %}"><button>view</button></a>
         </td>
@@ -24,7 +33,7 @@
         <a href="{% url 'update_student' id=i.id %}"><button>Edit</button></a>
         </td>
         <td>
-        <a href="{% url 'delete_student' id=i.id %}"><button>Delete</button></a>
+        <a href="{% url 'delete_student' id=i.id %}"><button>Deactivate</button></a>
         </td>
     </tr>
     {% endfor %}

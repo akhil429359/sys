@@ -15,17 +15,17 @@
 
 	<header id="header">
 		<div class="container">
-			<a href="index" id="logo" title="HarrisonHighSchool">HarrisonHighSchool</a>
+			<a href="{% url 'index' %}" id="logo" title="HarrisonHighSchool">HarrisonHighSchool</a>
 			<div class="menu-trigger"></div>
 			<nav id="menu">
 				<ul>
-					<li><a href="events">Courses</a></li>
-					<li><a href="student_list">Students</a></li>
-					<li class="current"><a href="events">Events</a></li>
+					<li><a href="{% url 'events' %}">Courses</a></li>
+					<li><a href="{% url 'student_list' %}">Students</a></li>
+					<li class="current"><a href="{% url 'events' %}">Events</a></li>
  				</ul>
 				<ul>
-					<li><a href="gallery">Teachers</a></li>
-					<li><a href="add_student">ADD STUDENT</a></li>
+					<li><a href="{% url 'gallery' %}">Teachers</a></li>
+					<li><a href="{% url 'add_student' %}">ADD STUDENT</a></li>
 					<li><a href=# class="get-contact">Contact</a></li>
    				</ul>
 			</nav>

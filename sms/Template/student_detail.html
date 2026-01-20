@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card shadow-lg p-4 rounded-4">
-                <h3 class="text-center mb-4">Student Deatil</h3>
+                <h3 class="text-center mb-4">Student Detail</h3>
                 
                 <div class="mb-3">
                     <label class="form-label fw-bold">Name</label>
@@ -31,9 +31,10 @@
                     <label class="form-label fw-bold">Updated At</label>
                     <p class="form-control-plaintext">{{ data.updated_at }}</p>
                 </div>
+                <div><p><strong>Status:</strong> {{ data.status }}</p></div>
                     <div><a href="{% url 'update_student' data.id %}" class="btn btn-primary btn-sm rounded-pill px-4">Edit</a></div>
                     <div><a href="{% url 'student_list' %}">Back</a></div>
-                    <div><a href="{% url 'delete_student' data.id %}">Delete</a></div>
+                    <div><a href="{% url 'delete_student' data.id %}">Deactivate</a></div>
                 <div class="text-center">
                 </div>
             </div>

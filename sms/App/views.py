@@ -14,15 +14,24 @@ def gallery(request):
 
 def student_list(request):
     query = request.GET.get('q')
+    sort = request.GET.get('sort')
+    SORT_OPTIONS = {
+        'name':'name',
+        'course':'course',
+        'created':'-created_at',
+
+    }
     if query:
-        students = Student.objects.filter(Q(name__icontains=query)|Q(course__icontains=query))
+        students = Student.objects.filter(Q(name__icontains=query)|Q(course__icontains=query),is_active=True)
 
     else:
-        students = Student.objects.all()
+        students = Student.objects.filter(is_active=True)
+    if sort in SORT_OPTIONS:
+        students = students.order_by(SORT_OPTIONS[sort])
     paginator = Paginator(students, 5)
     page_number = request.GET.get('page')
     data = paginator.get_page(page_number)
-    return render(request,'student_list.html',{"data":data,"query":query})
+    return render(request,'student_list.html',{"data":data,"query":query,"sort":sort})
 
 def add_student(request):
     if request.method == 'POST':
@@ -47,7 +56,9 @@ def update_student(request,id):
     
 def delete_student(request,id):
     data = Student.objects.get(id=id)
-    data.delete()
+    data.is_active = False
+    data.status = 'inactive'
+    data.save()
     return redirect('student_list')
     
 def student_detail(request,id):
